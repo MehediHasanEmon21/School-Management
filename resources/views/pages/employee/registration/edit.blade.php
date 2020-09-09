@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Manage Student Registration</h1>
+            <h1 class="m-0 text-dark">Edit Employee</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -35,20 +35,19 @@
 
           <div class="card">
             <div class="card-header">
-              <h2 class="card-title">Edit Student</h2>
-              <a href="{{ route('student.reg.view') }}"><h4 class="btn btn-sm btn-success float-right"><i class="fa fa-list">All Registration</i></h4></a>
+              <h2 class="card-title">Add Employee</h2>
+              <a href="{{ route('employee.reg.view') }}"><h4 class="btn btn-sm btn-success float-right"><i class="fa fa-list">All Registration</i></h4></a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <form action="{{ route('student.reg.update',$student->student_id) }}" method="POST" id="myform" enctype="multipart/form-data">
+              <form action="{{ route('employee.reg.update',$employee->id) }}" method="POST" id="myform" enctype="multipart/form-data">
                 @csrf
              <div class="row">
-              <input type="hidden" value="{{ $student->id }}" name="id">
                 <div class="col-md-4">
                   
                   <div class="form-group">
-                      <label for="name">Student Name <font color="red">*</font></label>
-                      <input type="text" class="form-control form-control-sm" value="{{ $student->student->name }}" name="name" id="name" placeholder="Enter name">
+                      <label for="name">Employee Name <font color="red">*</font></label>
+                      <input type="text" class="form-control form-control-sm" name="name" id="name"  value="{{ $employee->name }}" placeholder="Enter name">
                       
                   </div>
 
@@ -57,7 +56,7 @@
                 <div class="col-md-4">
                   <div class="form-group">
                       <label for="fname">Father's Name <font color="red">*</font></label>
-                      <input type="text" class="form-control form-control-sm" value="{{ $student->student->fname }}" name="fname" id="fname" placeholder="Enter fname">
+                      <input type="text" class="form-control form-control-sm" name="fname" id="fname" value="{{ $employee->fname }}" placeholder="Enter fname">
                       
                   </div>
                 </div>
@@ -65,7 +64,7 @@
                 <div class="col-md-4">
                   <div class="form-group">
                       <label for="mname">Mother's Name <font color="red">*</font></label>
-                      <input type="text" class="form-control form-control-sm" value="{{ $student->student->mname }}" name="mname" id="mname" placeholder="Enter mname">
+                      <input type="text" class="form-control form-control-sm" name="mname" id="mname" value="{{ $employee->mname }}" placeholder="Enter mname">
                       
                   </div>
                 </div>
@@ -73,7 +72,7 @@
                  <div class="col-md-4">
                   <div class="form-group">
                       <label for="mobile">Mobile No <font color="red">*</font></label>
-                      <input type="text" class="form-control form-control-sm" value="{{ $student->student->mobile }}" name="mobile" id="mobile" placeholder="Enter mobile">
+                      <input type="text" class="form-control form-control-sm" name="mobile" id="mobile" value="{{ $employee->mobile }}" placeholder="Enter mobile">
                       
                   </div>
                 </div>
@@ -81,7 +80,7 @@
                 <div class="col-md-4">
                   <div class="form-group">
                       <label for="address">Address <font color="red">*</font></label>
-                      <input type="text" class="form-control form-control-sm" value="{{ $student->student->address }}" name="address" id="address" placeholder="Enter address">
+                      <input type="text" class="form-control form-control-sm" name="address" id="address" value="{{ $employee->address }}" placeholder="Enter address">
                       
                   </div>
                 </div>
@@ -92,20 +91,20 @@
                       <label for="address">Gender <font color="red">*</font></label>
                       <select name="gender" class="form-control form-control-sm">
                       <option value="" selected="">Select Gender</option>
-                      <option value="Male" {{ $student->student->gender == 'Male' ? 'selected' : '' }}>Male</option>
-                      <option {{ $student->student->gender == 'Female' ? 'selected' : '' }} value="Female">Female</option>
+                      <option value="Male" {{ $employee->gender == 'Male' ? 'selected' : '' }}>Male</option>
+                      <option value="Female" {{ $employee->gender == 'Female' ? 'selected' : '' }}>Female</option>
                       </select>
                   </div>
-                </div> 
+                </div>
 
                  <div class="col-md-4">
                   <div class="form-group">
                       <label for="address">Religion <font color="red">*</font></label>
                       <select name="religion" class="form-control form-control-sm">
                       <option value="" selected="">Select Religion</option>
-                      <option value="Muslim" {{ $student->student->religion == 'Muslim' ? 'selected' : '' }}>Muslim</option>
-                      <option value="Hindu" {{ $student->student->religion == 'Hindu' ? 'selected' : '' }}>Hindu</option>
-                      <option value="Christian" {{ $student->student->religion == 'Christian' ? 'selected' : '' }}>Christian</option>
+                      <option value="Muslim" {{ $employee->religion == 'Muslim' ? 'selected' : '' }}>Muslim</option>
+                      <option value="Hindu" {{ $employee->religion == 'Hindu' ? 'selected' : '' }}>Hindu</option>
+                      <option value="Christian" {{ $employee->religion == 'Christian' ? 'selected' : '' }}>Christian</option>
                       </select>
                       
                   </div>
@@ -114,73 +113,31 @@
                  <div class="col-md-4">
                   <div class="form-group">
                       <label for="dob">Date of Birth <font color="red">*</font></label>
-                      <input type="text" value="{{ $student->student->dob }}" class="form-control form-control-sm datepicker" name="dob" id="dob" placeholder="Enter dob">
+                      <input type="text" class="form-control form-control-sm datepicker" name="dob" value="{{ $employee->dob }}" id="dob" placeholder="Enter dob">
                       
                   </div>
                 </div>
 
 
                  <div class="col-md-4">
-                  <div class="form-group">
-                      <label for="discount">Discount</label>
-                      <input type="number" value="{{ $student->discount_student->discount }}" class="form-control form-control-sm" name="discount" id="discount" placeholder="Enter discount">
-                      
-                  </div>
-                </div>
-
-                <div class="col-md-4">
-                  <div class="form-group">
-                     <label for="address">Year <font color="red">*</font></label>
-                      <select name="year_id" class="form-control form-control-sm">
-                      <option value="" selected="">Select Year</option>
-                      @foreach($years as $year)
-                        <option {{ (@$student->year_id == $year->id) ? 'selected' : '' }} value="{{ $year->id }}">{{$year->name}}</option>
+                    <div class="form-group">
+                      <label for="address">Designation <font color="red">*</font></label>
+                      <select name="designation_id" class="form-control form-control-sm">
+                      <option value="" selected="">Select Designation</option>
+                      @foreach($designations as $des)
+                        <option {{ $employee->designation_id == $des->id ? 'selected' : '' }} value="{{ $des->id }}">{{$des->name}}</option>
                       @endforeach
                       </select>
                       
                   </div>
                 </div>
 
-                <div class="col-md-4">
-                  <div class="form-group">
-                      <label for="address">Class <font color="red">*</font></label>
-                      <select name="class_id" class="form-control form-control-sm">
-                      <option value="" selected="">Select Class</option>
-                      @foreach($classes as $class)
-                        <option {{ (@$student->class_id == $class->id) ? 'selected' : '' }} value="{{ $class->id }}">{{$class->name}}</option>
-                      @endforeach
-                      </select>
-                      
-                  </div>
-                </div>
 
-                 <div class="col-md-4">
-                  <div class="form-group">
-                      <label for="address">Group</label>
-                      <select name="group_id" class="form-control form-control-sm">
-                      <option value="" selected="">Select Group</option>
-                      @foreach($groups as $group)
-                        <option {{ (@$student->shift_id == $group->id) ? 'selected' : '' }} value="{{ $group->id }}">{{$group->name}}</option>
-                      @endforeach
-                      </select>
-                      
-                  </div>
-                </div>
 
-                <div class="col-md-4">
-                  <div class="form-group">
-                      <label for="address">Shift</label>
-                      <select name="shift_id" class="form-control form-control-sm">
-                      <option value="" selected="">Select Shift</option>
-                      @foreach($shifts as $shift)
-                        <option {{ (@$student->shift_id == $shift->id) ? 'selected' : '' }} value="{{ $shift->id }}">{{$shift->name}}</option>
-                      @endforeach
-                      </select>
-                      
-                  </div>
-                </div>
+               
+                
 
-                <div class="col-md-4">
+                <div class="col-md-3">
                 
                   <div class="form-group">
                       <label for="password_confirmation">Image</label>
@@ -190,9 +147,9 @@
 
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-3">
 
-                  <img id="show-image" src="{{ (@$student->student->image) ? URL::to($student->student->image) : URL::to('public/assets/backend/dist/img/unnamed.jpg') }}" style="width: 100px; height: 100px;">
+                  <img id="show-image" class="img-fluid" src="{{  ($employee->image) ? URL::to($employee->image) : URL::to('public/assets/backend/dist/img/unnamed.jpg') }}" style="width: 100px; height: 100px;">
                   
                 </div>
 
@@ -252,10 +209,7 @@
       religion: {
         required: true,
       },
-      year_id: {
-        required: true,
-      },
-      class_id: {
+      designation_id: {
         required: true,
       },
       mobile: {
@@ -287,6 +241,7 @@
             uiLibrary: 'bootstrap4',
             format: 'yyyy-mm-dd'
         });
+
     </script>
 
 @endsection

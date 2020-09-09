@@ -8,12 +8,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Manage Employee Registration</h1>
+            <h1 class="m-0 text-dark">Manage Employee Salary</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Employee Registration</li>
+              <li class="breadcrumb-item active">Employee Salary</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -35,8 +35,7 @@
 
           <div class="card">
             <div class="card-header">
-              <h2 class="card-title">Registration List</h2>
-              <a href="{{route('employee.reg.create')}}"><h4 class="btn btn-sm btn-success float-right"><i class="fa fa-plus-circle">Add Employee</i></h4></a>
+              <h2 class="card-title">Increment Salary</h2>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -46,11 +45,7 @@
                   <th>SL</th>
                   <th>Name</th>
                   <th>Mobile</th>
-                  <th>Address</th>
                   <th>Image</th>
-                  @if(Auth::user()->role == 'Admin')
-                  <th>Code</th>
-                  @endif
                   <th>Join Date</th>
                   <th>Salary</th>
                   <th>Action</th>
@@ -63,16 +58,13 @@
                   <td>{{$key + 1}}</td>
                   <td>{{$user->name}}</td>
                   <td>{{$user->mobile}}</td>
-                  <td>{{$user->address}}</td>
+  
                   <td><img src="{{URL::to($user->image)}}" style="width: 60px; height: 60px"></td>
-                   @if(Auth::user()->role == 'Admin')
-                  <td>{{$user->code}}</td>
-                  @endif
-                  <td>{{$user->join_date}}</td>
+                  <td>{{ date('jS M Y', strtotime($user->join_date)) }}</td>
                   <td>{{$user->salary}}</td>
                   <td>
-                    <a class="btn btn-sm btn-primary" title="Edit" href="{{ route('employee.reg.edit',$user->id) }}"><i class="fa fa-edit"></i></a>
-                    <a class="btn btn-sm btn-success" title="Details" target="_blank" href="{{ route('employee.reg.detail',$user->id) }}"><i class="fa fa-eye"></i></a>
+                    <a class="btn btn-sm btn-primary" title="Salary Increment" href="{{ route('employee.salary.increment',$user->id) }}"><i class="fa fa-plus-circle"></i></a>
+                    <a class="btn btn-sm btn-success" title="Details" href="{{ route('employee.salary.detail',$user->id) }}"><i class="fa fa-eye"></i></a>
                      
                  
                   </td>
@@ -84,11 +76,7 @@
                   <th>SL</th>
                   <th>Name</th>
                   <th>Mobile</th>
-                  <th>Address</th>
                   <th>Image</th>
-                  @if(Auth::user()->role == 'Admin')
-                  <th>Code</th>
-                  @endif
                   <th>Join Date</th>
                   <th>Salary</th>
                   <th>Action</th>

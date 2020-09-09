@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Student Details</title>
+	<title>Employee Details</title>
 	  <link rel="stylesheet" href="{{asset('public/assets/backend')}}/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
 	<style type="text/css">
 		
@@ -94,7 +94,7 @@
 							<h6><strong>www.school.com</strong></h6>
 						</td>
 						<td class="text-center" width="30%"> 
-							<img src="{{ URL::to($detail->student->image) }}" style="width: 100px; height: 100px">
+							<img src="{{ URL::to($detail->image) }}" style="width: 100px; height: 100px">
 						</td>
 					</tr>
 					
@@ -103,70 +103,61 @@
 			</div>
 
 			<div class="col-md-12 text-center">
-				<h5 style="font-weight: bold; padding-top: -25px;">Student Registaration Card</h5>
+				<h5 style="font-weight: bold; padding-top: -25px;">Employee Info</h5>
 			</div>
 
 			<div class="col-md-12">
 				<table border="1" width="100%">
 
 					<tr>
-						<td width="50%">Student Name</td>
-						<td>{{$detail->student->name}}</td>
+						<td width="50%">Employee Name</td>
+						<td>{{$detail->name}}</td>
 					</tr>
 
 					<tr>
 						<td width="50%">Father's Name</td>
-						<td>{{$detail->student->fname}}</td>
+						<td>{{$detail->fname}}</td>
 					</tr>
 
 					<tr>
 						<td width="50%">Mother's Name</td>
-						<td>{{$detail->student->mname}}</td>
-					</tr>
-
-					<tr>
-						<td width="50%">Year</td>
-						<td>{{$detail->year->name}}</td>
-					</tr>
-
-					<tr>
-						<td width="50%">Class</td>
-						<td>{{$detail->class->name}}</td>
-					</tr>
-
-					<tr>
-						<td width="50%">Id No</td>
-						<td>{{$detail->student->id_no}}</td>
-					</tr>
-
-					<tr>
-						<td width="50%">Roll</td>
-						<td>{{$detail->roll}}</td>
+						<td>{{$detail->mname}}</td>
 					</tr>
 
 					<tr>
 						<td width="50%">Mobile</td>
-						<td>{{$detail->student->mobile}}</td>
+						<td>{{$detail->mobile}}</td>
 					</tr>
 
 					<tr>
 						<td width="50%">Address</td>
-						<td>{{$detail->student->address}}</td>
+						<td>{{$detail->address}}</td>
 					</tr>
 
 					<tr>
 						<td width="50%">Gender</td>
-						<td>{{$detail->student->gender}}</td>
+						<td>{{$detail->gender}}</td>
 					</tr>
 
 					<tr>
+						<td width="50%">Designation</td>
+						<td>{{$detail->designation->name}}</td>
+					</tr>
+
+
+					<tr>
 						<td width="50%">Religion</td>
-						<td>{{$detail->student->religion}}</td>
+						<td>{{$detail->religion}}</td>
 					</tr>
 
 					<tr>
 						<td width="50%">BirthDay</td>
-						<td>{{$detail->student->dob}}</td>
+						<td>{{$detail->dob}}</td>
+					</tr>
+
+					<tr>
+						<td width="50%">Joining Date</td>
+						<td>{{$detail->join_date}}</td>
 					</tr>
 					
 				</table>

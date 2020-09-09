@@ -170,9 +170,27 @@ Route::group(['middleware' => 'auth'],function(){
 
 	Route::prefix('/employee')->group(function(){
 
+		//employee registration
 		Route::get('/reg/list','Admin\Employee\EmployeeRegController@index')->name('employee.reg.view');
 		Route::get('/reg/create','Admin\Employee\EmployeeRegController@create')->name('employee.reg.create');
 		Route::post('/reg/store','Admin\Employee\EmployeeRegController@store')->name('employee.reg.store');
+		Route::get('/reg/edit/{id}','Admin\Employee\EmployeeRegController@edit')->name('employee.reg.edit');
+		Route::post('/reg/update/{id}','Admin\Employee\EmployeeRegController@update')->name('employee.reg.update');
+		Route::get('/reg/details/{id}','Admin\Employee\EmployeeRegController@employeeDetails')->name('employee.reg.detail');
+
+
+		//employee salary
+		Route::get('/salary/list','Admin\Employee\EmployeeSalaryController@index')->name('employee.salary.view');
+		Route::get('/salary/increment/{id}','Admin\Employee\EmployeeSalaryController@increment')->name('employee.salary.increment');
+		Route::post('/salary/update/{id}','Admin\Employee\EmployeeSalaryController@update')->name('employee.salary.update');
+		Route::get('/salary/details/{id}','Admin\Employee\EmployeeSalaryController@employeeSalaryDetails')->name('employee.salary.detail');
+
+		//employee leave
+		Route::get('leave/list','Admin\Employee\EmployeeLeaveController@index')->name('employee.leave.view');
+		Route::get('leave/add','Admin\Employee\EmployeeLeaveController@create')->name('employee.leave.add');
+		Route::post('leave/store','Admin\Employee\EmployeeLeaveController@store')->name('employee.leave.store');
+		Route::get('leave/edit/{id}','Admin\Employee\EmployeeLeaveController@edit')->name('employee.leave.edit');
+		Route::post('leave/update/{id}','Admin\Employee\EmployeeLeaveController@update')->name('employee.leave.update');
 
 
 	});

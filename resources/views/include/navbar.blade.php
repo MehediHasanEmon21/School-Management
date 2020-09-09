@@ -202,6 +202,23 @@ $route = Route::current()->getName();
                 </a>
               </li>
             </ul>
+
+              <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('employee.salary.view')}}" class="nav-link {{ $route == 'employee.salary.view' ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Employee Salary</p>
+                </a>
+              </li>
+            </ul>
+             <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('employee.leave.view')}}" class="nav-link {{ $route == 'employee.leave.view' ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Employee Leave</p>
+                </a>
+              </li>
+            </ul>
           </li>
 
 
