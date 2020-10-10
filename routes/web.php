@@ -192,6 +192,13 @@ Route::group(['middleware' => 'auth'],function(){
 		Route::get('leave/edit/{id}','Admin\Employee\EmployeeLeaveController@edit')->name('employee.leave.edit');
 		Route::post('leave/update/{id}','Admin\Employee\EmployeeLeaveController@update')->name('employee.leave.update');
 
+		//employee leave
+		Route::get('attend/list','Admin\Employee\EmployeeAttendController@index')->name('employee.attend.view');
+		Route::get('attend/add','Admin\Employee\EmployeeAttendController@create')->name('employee.attend.add');
+		Route::post('attend/store','Admin\Employee\EmployeeAttendController@store')->name('employee.attend.store');
+		Route::get('attend/edit/{date}','Admin\Employee\EmployeeAttendController@edit')->name('employee.attend.edit');
+		Route::get('attend/detail/{date}','Admin\Employee\EmployeeAttendController@detail')->name('employee.attend.detail');
+
 
 	});
 

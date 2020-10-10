@@ -219,6 +219,14 @@ $route = Route::current()->getName();
                 </a>
               </li>
             </ul>
+              <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('employee.attend.view')}}" class="nav-link {{ $route == 'employee.attend.view' ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Employee Attendance</p>
+                </a>
+              </li>
+            </ul>
           </li>
 
 
