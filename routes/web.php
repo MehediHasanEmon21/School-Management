@@ -199,8 +199,28 @@ Route::group(['middleware' => 'auth'],function(){
 		Route::get('attend/edit/{date}','Admin\Employee\EmployeeAttendController@edit')->name('employee.attend.edit');
 		Route::get('attend/detail/{date}','Admin\Employee\EmployeeAttendController@detail')->name('employee.attend.detail');
 
+		//mothly fee route
+		Route::get('/monthly/salary/list','Admin\Employee\MonthlySalaryController@index')->name('monthly.salary.view');
+		Route::get('/monthly/get-employee','Admin\Employee\MonthlySalaryController@getEmployee')->name('monthly.salary.get.employee');
+		Route::get('/monthly/pay/slip/{employee_id}','Admin\Employee\MonthlySalaryController@paySlip')->name('monthly.salary.pay.slip');
+
 
 	});
+
+	Route::prefix('/marks')->group(function(){
+
+		Route::get('/view','Admin\Mark\MarksController@view')->name('marks.view');
+		Route::post('/add','Admin\Mark\MarksController@add')->name('marks.add');
+		Route::get('/edit','Admin\Mark\MarksController@edit')->name('marks.edit');
+		Route::post('/update','Admin\Mark\MarksController@update')->name('marks.update');
+		Route::get('/get-student-marks','Admin\Mark\MarksController@getMarks')->name('get-student-marks');
+		
+
+
+	});
+
+	Route::get('/get-subject','Admin\DefaultController@getSubject')->name('get-subject');
+	Route::get('/get-student','Admin\DefaultController@getStudent')->name('get-student');
 
 	
 });

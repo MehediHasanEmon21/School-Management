@@ -61,16 +61,24 @@ class AssignSubjectController extends Controller
         if ($request->subject_id == NULL) {
             return redirect()->back()->with('error','Sorry You do not select any item');
         }else{
-            AssignSubject::where('class_id',$class_id)->delete();
-            $subject_id = count($request->subject_id);
-             for ($i=0; $i < $subject_id; $i++) { 
-               $assign_subject = new AssignSubject();
+
+            AssignSubject::whereNotIn('subject_id',$request->subject_id)->where('class_id',$request->class_id)->delete();
+
+            foreach ($request->subject_id as $key => $value) {
+              $assign_subject_exists = AssignSubject::where('subject_id',$request->subject_id[$key])->where('class_id',$request->class_id)->first();
+              if ($assign_subject_exists) {
+               $assign_subject = $assign_subject_exists;
+              }else{
+                $assign_subject = new AssignSubject();
+              }
+
                $assign_subject->class_id = $request->class_id;
-               $assign_subject->subject_id = $request->subject_id[$i];
-               $assign_subject->full_mark = $request->full_mark[$i];
-               $assign_subject->pass_mark = $request->pass_mark[$i];
-               $assign_subject->subjective_mark = $request->subjective_mark[$i];
+               $assign_subject->subject_id = $request->subject_id[$key];
+               $assign_subject->full_mark = $request->full_mark[$key];
+               $assign_subject->pass_mark = $request->pass_mark[$key];
+               $assign_subject->subjective_mark = $request->subjective_mark[$key];
                $assign_subject->save();
+
             }
         
 

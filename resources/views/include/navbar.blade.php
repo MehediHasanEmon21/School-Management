@@ -227,6 +227,43 @@ $route = Route::current()->getName();
                 </a>
               </li>
             </ul>
+             <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('monthly.salary.view')}}" class="nav-link {{ $route == 'monthly.salary.view' ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Employee Monthly Salary</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+            <li class="nav-item has-treeview {{ $prefix == '/marks' ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                 Marks Management
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('marks.view')}}" class="nav-link {{ $route == 'marks.view' ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Mark Entry</p>
+                </a>
+              </li>
+            </ul>
+
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('marks.edit')}}" class="nav-link {{ $route == 'marks.edit' ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Mark Edit</p>
+                </a>
+              </li>
+            </ul>
+
+        
           </li>
 
 
