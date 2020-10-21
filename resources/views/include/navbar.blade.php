@@ -263,6 +263,15 @@ $route = Route::current()->getName();
               </li>
             </ul>
 
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('grade.view')}}" class="nav-link {{ $route == 'grade.view' ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Mark Grade</p>
+                </a>
+              </li>
+            </ul>
+
         
           </li>
 

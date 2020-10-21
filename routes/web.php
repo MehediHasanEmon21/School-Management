@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,7 +13,7 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function (Request $request) {
     return redirect('/login');
 });
 
@@ -214,6 +216,13 @@ Route::group(['middleware' => 'auth'],function(){
 		Route::get('/edit','Admin\Mark\MarksController@edit')->name('marks.edit');
 		Route::post('/update','Admin\Mark\MarksController@update')->name('marks.update');
 		Route::get('/get-student-marks','Admin\Mark\MarksController@getMarks')->name('get-student-marks');
+
+		//employee leave
+		Route::get('grade/list','Admin\Mark\GradeController@index')->name('grade.view');
+		Route::get('grade/add','Admin\Mark\GradeController@create')->name('grade.add');
+		Route::post('grade/store','Admin\Mark\GradeController@store')->name('grade.store');
+		Route::get('grade/edit/{id}','Admin\Mark\GradeController@edit')->name('grade.edit');
+		Route::post('grade/update/{id}','Admin\Mark\GradeController@update')->name('grade.update');
 		
 
 
