@@ -237,7 +237,7 @@ $route = Route::current()->getName();
             </ul>
           </li>
 
-            <li class="nav-item has-treeview {{ $prefix == '/marks' ? 'menu-open' : '' }}">
+          <li class="nav-item has-treeview {{ $prefix == '/marks' ? 'menu-open' : '' }}">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
@@ -271,6 +271,46 @@ $route = Route::current()->getName();
                 </a>
               </li>
             </ul>
+
+        
+          </li>
+
+           <li class="nav-item has-treeview {{ $prefix == '/accounts' ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                 Accounts Management
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('acounts.fee.view')}}" class="nav-link {{ $route == 'acounts.fee.view' ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Student Fee</p>
+                </a>
+              </li>
+            </ul>
+
+             <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('acounts.salary.view')}}" class="nav-link {{ $route == 'acounts.fee.view' ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Employee Salary</p>
+                </a>
+              </li>
+            </ul>
+
+             <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('other.cost.view')}}" class="nav-link {{ $route == 'other.cost.view' ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Other Cost</p>
+                </a>
+              </li>
+            </ul>
+
+      
 
         
           </li>

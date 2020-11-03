@@ -228,6 +228,34 @@ Route::group(['middleware' => 'auth'],function(){
 
 	});
 
+	Route::prefix('/accounts')->group(function(){
+
+		//student fee
+		Route::get('/student/fee/view','Admin\Account\StudentFeeController@view')->name('acounts.fee.view');
+		Route::get('/student/fee/add','Admin\Account\StudentFeeController@add')->name('acounts.fee.add');
+		Route::post('/student/fee/store','Admin\Account\StudentFeeController@Store')->name('acounts.fee.store');
+		Route::get('/student/getStudent','Admin\Account\StudentFeeController@getStudent')->name('acounts.fee.getStudent');
+
+		//employee salary
+		Route::get('/employee/salary/view','Admin\Account\SalaryController@view')->name('acounts.salary.view');
+		Route::get('/employee/salary/add','Admin\Account\SalaryController@add')->name('acounts.salary.add');
+		Route::post('/employee/salary/store','Admin\Account\SalaryController@Store')->name('acounts.salary.store');
+		Route::get('/employee/getEmployee','Admin\Account\SalaryController@getEmployee')->name('acounts.salary.getEmployee');
+
+		//other cost
+		Route::get('/other/cost/view','Admin\Account\OtherCostController@view')->name('other.cost.view');
+		Route::get('/other/cost/add','Admin\Account\OtherCostController@create')->name('other.cost.add');
+		Route::post('/other/cost/store','Admin\Account\OtherCostController@store')->name('other.cost.store');
+		Route::get('/other/cost/edit/{id}','Admin\Account\OtherCostController@edit')->name('other.cost.edit');
+		Route::post('/other/cost/update/{id}','Admin\Account\OtherCostController@update')->name('other.cost.update');
+		
+		
+		
+		
+
+
+	});
+
 	Route::get('/get-subject','Admin\DefaultController@getSubject')->name('get-subject');
 	Route::get('/get-student','Admin\DefaultController@getStudent')->name('get-student');
 
