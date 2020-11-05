@@ -20,7 +20,7 @@ use PDF;
 class MarksController extends Controller
 {
     public function view(){
-    	$data['years'] = Year::get();
+    $data['years'] = Year::get();
 		$data['classes'] = StudentClass::get();
 		$data['exams'] = ExamType::get();
 		return view('pages.mark.mark-add',$data);

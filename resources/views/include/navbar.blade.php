@@ -327,7 +327,16 @@ $route = Route::current()->getName();
               <li class="nav-item">
                 <a href="{{route('profit.view')}}" class="nav-link {{ $route == 'profit.view' ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Monthly Cost</p>
+                  <p>Monthly Profit</p>
+                </a>
+              </li>
+            </ul>
+
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('reports.marksheet.view')}}" class="nav-link {{ $route == 'reports.marksheet.view' ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Marksheet</p>
                 </a>
               </li>
             </ul>

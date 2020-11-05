@@ -258,10 +258,15 @@ Route::group(['middleware' => 'auth'],function(){
 
 	Route::prefix('/reports')->group(function(){
 
-		//cost
+		//profit
 		Route::get('/profit/view','Admin\Report\ProfitController@view')->name('profit.view');
 		Route::get('/profit/view/pdf','Admin\Report\ProfitController@pdf')->name('profit.view.pdf');
 		Route::get('/profit/getProfit','Admin\Report\ProfitController@getProfit')->name('profit.getProfit');
+
+		//marksheet
+		Route::get('/marksheet/view','Admin\Report\MarkSheetController@view')->name('reports.marksheet.view');
+		Route::get('/marksheet/view/result','Admin\Report\MarkSheetController@result')->name('report.marksheet.result');
+		
 
 		
 		

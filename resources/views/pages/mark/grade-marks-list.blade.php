@@ -59,10 +59,10 @@
 
                   <td>{{$key + 1}}</td>
                   <td>{{$value->grade_name}}</td>
-                  <td>{{$value->grade_point}}</td>
+                  <td>{{number_format((float)$value->grade_point,2)}}</td>
                   <td>{{$value->start_mark}}</td>
                   <td>{{$value->end_mark}}</td>
-                  <td>{{$value->start_point}} - {{$value->end_point}}</td>
+                  <td>{{number_format((float)$value->start_point,2)}} - {{number_format((float)$value->end_point,2)}}</td>
                   <td>{{$value->remark}}</td>
                   <td>
                     <a class="btn btn-sm btn-primary" title="Edit" href="{{ route('grade.edit',$value->id) }}"><i class="fa fa-edit"></i></a>
