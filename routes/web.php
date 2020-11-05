@@ -256,6 +256,21 @@ Route::group(['middleware' => 'auth'],function(){
 
 	});
 
+	Route::prefix('/reports')->group(function(){
+
+		//cost
+		Route::get('/profit/view','Admin\Report\ProfitController@view')->name('profit.view');
+		Route::get('/profit/view/pdf','Admin\Report\ProfitController@pdf')->name('profit.view.pdf');
+		Route::get('/profit/getProfit','Admin\Report\ProfitController@getProfit')->name('profit.getProfit');
+
+		
+		
+		
+		
+
+
+	});
+
 	Route::get('/get-subject','Admin\DefaultController@getSubject')->name('get-subject');
 	Route::get('/get-student','Admin\DefaultController@getStudent')->name('get-student');
 
