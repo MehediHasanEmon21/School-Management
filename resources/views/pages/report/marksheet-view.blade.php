@@ -159,7 +159,7 @@
                       <div class="col-md-12">
                       <table border="1" width="100%" cellpadding="1" cellspacing="1">
                       <tr>
-                        <td width="50%">Grade Point Average</td>
+                        <td width="50%"><b>Grade Point Average</b></td>
                         <td>
                           @if($fail_count > 0)
                           0.00
@@ -170,7 +170,7 @@
                       </td>
                       </tr>
                       <tr>
-                        <td width="50%">Letter Grade</td>
+                        <td width="50%"><b>Letter Grade</b></td>
                         <td>
                           @if($fail_count > 0)
                           F
@@ -182,16 +182,35 @@
                       </tr>
 
                       <tr>
-                        <td width="50%">Total Marks with Fraction</td>
+                        <td width="50%"><b>Total Marks with Fraction</b></td>
                         <td>{{$total_number}}</td>
                       </tr>
 
                       <tr>
-                        <td width="50%">Remarks</td>
+                        <td width="50%"><b>Remarks</b></td>
                         <td><b>{{$letter_grade->remark}}</b></td>
                       </tr>
                      
                       </table>
+                    </div>
+
+                  </div><br>
+
+                  <div class="row">
+                    
+                    <div class="col-md-4">
+                      <hr style="border: 1px solid; width: 60%; color: #000; margin-bottom: -3px;">
+                      <div class="text-center">Teacher</div>
+                    </div>
+
+                    <div class="col-md-4">
+                      <hr style="border: 1px solid; width: 60%; color: #000; margin-bottom: -3px;">
+                      <div class="text-center">Parents/Guardian</div>
+                    </div>
+
+                    <div class="col-md-4">
+                      <hr style="border: 1px solid; width: 60%; color: #000; margin-bottom: -3px;">
+                      <div class="text-center">Principal/Headmaster</div>
                     </div>
 
                   </div>

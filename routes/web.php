@@ -266,6 +266,10 @@ Route::group(['middleware' => 'auth'],function(){
 		//marksheet
 		Route::get('/marksheet/view','Admin\Report\MarkSheetController@view')->name('reports.marksheet.view');
 		Route::get('/marksheet/view/result','Admin\Report\MarkSheetController@result')->name('report.marksheet.result');
+
+		//attendance
+		Route::get('/attendance/view','Admin\Report\AttendanceController@view')->name('reports.attendance.view');
+		Route::get('/attendance/view/result','Admin\Report\AttendanceController@result')->name('report.attendance.result');
 		
 
 		
