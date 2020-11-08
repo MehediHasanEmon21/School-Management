@@ -21,7 +21,7 @@ class StudentMark extends Model
     	return $this->belongsTo('App\Model\ExamType','exam_type_id','id');
     }
 
-    public function subject(){
-    	return $this->belongsTo('App\Model\Subject','assign_subject_id','id');
+    public function assign_subject(){
+    	return $this->belongsTo('App\AssignSubject','assign_subject_id','id');
     }
 }

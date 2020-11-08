@@ -226,7 +226,7 @@
             success:function(data){
               var html = '<option value="" selected="" disabled="">Select Subject</option>'
               $.each(data,function(key,v){
-                html += '<option value="'+v.subject.id+'">'+v.subject.name+'</option>'
+                html += '<option value="'+v.id+'">'+v.subject.name+'</option>'
               })
               $('#assign_subject_id').html(html)
               
