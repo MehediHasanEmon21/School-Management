@@ -8,12 +8,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Marksheet Generate</h1>
+            <h1 class="m-0 text-dark">Result Generate</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">MarkSheet</li>
+              <li class="breadcrumb-item active">Result</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -39,7 +39,7 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-            <form method="GET" action="{{ route('report.marksheet.result') }}" target="_blank" id="myform">
+            <form method="GET" action="{{ route('report.result.get') }}" target="_blank" id="myform">
               @csrf
               <div class="form-row">
               
@@ -88,15 +88,8 @@
                   </div>
                 </div>
 
-                <div class="col-md-3">
-                  <div class="form-group">
-                      <label for="address">ID <font color="red">*</font></label>
-                      <input type="text" class="form-control" name="id_no" id="id_no" placeholder="ID no">
-                      
-                  </div>
-                </div>
 
-                <div class="col-md-2">
+                <div class="col-md-2" style="margin-top: 35px;">
                   <button type="submit" class="btn btn-primary btn-sm">Search</button>
                 </div>
             
@@ -143,13 +136,10 @@
         class_id: {
           required: true,
         },
-        id_no: {
-          required: true,
-        },
 
       },
       messages: {
-      
+        
       },
       errorElement: 'span',
       errorPlacement: function (error, element) {

@@ -270,6 +270,10 @@ Route::group(['middleware' => 'auth'],function(){
 		//attendance
 		Route::get('/attendance/view','Admin\Report\AttendanceController@view')->name('reports.attendance.view');
 		Route::get('/attendance/view/result','Admin\Report\AttendanceController@result')->name('report.attendance.result');
+
+		//result
+		Route::get('/result/view','Admin\Report\MarkSheetController@resultView')->name('reports.result.view');
+		Route::get('/result/pdf','Admin\Report\MarkSheetController@resultGet')->name('report.result.get');
 		
 
 		

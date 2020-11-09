@@ -15,10 +15,10 @@ class MarkSheetController extends Controller
 {
    public function view(){
 
-   		$data['years'] = Year::get();
+   	$data['years'] = Year::get();
 		$data['classes'] = StudentClass::get();
 		$data['exams'] = ExamType::get();
-   		return view('pages.report.marksheet-create',$data);
+   	return view('pages.report.marksheet-create',$data);
 
    }
 
@@ -53,6 +53,55 @@ class MarkSheetController extends Controller
    		}else{
    			return redirect()->back('error','Sorry This Criteria does not match!');
    		}
+
+
+   }
+
+   public function resultView(){
+
+      $data['years'] = Year::get();
+      $data['classes'] = StudentClass::get();
+      $data['exams'] = ExamType::get();
+      return view('pages.report.result-view',$data);
+
+   }
+
+   public function resultGet(Request $request){
+
+      $resultExists = StudentMark::where('year_id',$request->year_id)->where('class_id',$request->class_id)->where('exam_type_id',$request->exam_type_id)->first();
+
+      if ($resultExists == true) {
+
+         $allResults = StudentMark::with(['student','class','year','exam'])->select('year_id','class_id','exam_type_id','student_id')->where('year_id',$request->year_id)->where('class_id',$request->class_id)->where('exam_type_id',$request->exam_type_id)->groupBy('year_id')->groupBy('class_id')->groupBy('student_id')->groupBy('exam_type_id')->get();
+
+
+         foreach ($allResults as $key => $value) {
+            
+           $singleResults = StudentMark::with(['student','class','year','exam'])->where('year_id',$value->year_id)->where('class_id',$value->class_id)->where('exam_type_id',$value->exam_type_id)->where('student_id',$value->student_id)->get();
+
+             $total_grade = 0;
+
+             foreach ($singleResults as $key => $singleResult) {
+
+                  $grade_result = MarkGrade::where('start_mark', '<=', (int)$singleResult->marks)->where('end_mark','>=', (int)$singleResult->marks)->first();
+                  $total_grade = (float)$total_grade + number_format((float)$grade_result->grade_point,2);
+                 
+             }
+
+             $value->grade_point = round($total_grade/count($singleResults),2);
+             $grade_result = MarkGrade::where('start_point', '<=', $total_grade/count($singleResults))->where('end_point','>=', $total_grade/count($singleResults))->first();
+             $value->letter_grade = $grade_result->grade_name;
+             $value->remark = $grade_result->remark;
+
+
+         }
+
+         return $allResults;
+         
+      }else{
+         return redirect()->back('error','Sorry This Criteria does not match!');
+      }
+
 
 
    }
