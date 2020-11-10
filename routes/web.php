@@ -274,6 +274,10 @@ Route::group(['middleware' => 'auth'],function(){
 		//result
 		Route::get('/result/view','Admin\Report\MarkSheetController@resultView')->name('reports.result.view');
 		Route::get('/result/pdf','Admin\Report\MarkSheetController@resultGet')->name('report.result.get');
+
+		//IDcard
+		Route::get('/id-card/view','Admin\Report\MarkSheetController@idCardView')->name('reports.id-card.view');
+		Route::get('/id-card/pdf','Admin\Report\MarkSheetController@idCardGet')->name('report.id-card.get');
 		
 
 		

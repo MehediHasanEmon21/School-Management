@@ -10,6 +10,7 @@ use App\Model\StudentClass;
 use App\Model\StudentMark;
 use App\Model\Year;
 use Illuminate\Http\Request;
+use PDF;
 
 class MarkSheetController extends Controller
 {
@@ -79,6 +80,9 @@ class MarkSheetController extends Controller
             
            $singleResults = StudentMark::with(['student','class','year','exam'])->where('year_id',$value->year_id)->where('class_id',$value->class_id)->where('exam_type_id',$value->exam_type_id)->where('student_id',$value->student_id)->get();
 
+            $fail_count = StudentMark::where('year_id',$request->year_id)->where('class_id',$request->class_id)->where('exam_type_id',$request->exam_type_id)->where('student_id',$value->student_id)->where('marks','<','33')->get()->count();
+              $value->fail = $fail_count;
+
              $total_grade = 0;
 
              foreach ($singleResults as $key => $singleResult) {
@@ -95,8 +99,10 @@ class MarkSheetController extends Controller
 
 
          }
-
-         return $allResults;
+         
+          $pdf = PDF::loadView('pages.report.result-pdf', compact('allResults'));
+          $pdf->SetProtection(['copy', 'print'], '', 'pass');
+          return $pdf->stream('document.pdf');
          
       }else{
          return redirect()->back('error','Sorry This Criteria does not match!');
@@ -104,5 +110,30 @@ class MarkSheetController extends Controller
 
 
 
+   }
+
+   public function idCardView(){
+
+      $data['years'] = Year::get();
+      $data['classes'] = StudentClass::get();
+      return view('pages.report.id-card-view',$data);
+
+   }
+
+   public function idCardGet(Request $request){
+
+        $studentExists = AssignStudent::where('year_id',$request->year_id)->where('class_id',$request->class_id)->first();
+
+      if ($studentExists == true) {
+
+         $allData = AssignStudent::where('year_id',$request->year_id)->where('class_id',$request->class_id)->get();
+         
+          $pdf = PDF::loadView('pages.report.id-card-pdf', compact('allData'));
+          $pdf->SetProtection(['copy', 'print'], '', 'pass');
+          return $pdf->stream('document.pdf');
+         
+      }else{
+         return redirect()->back('error','Sorry This Criteria does not match!');
+      }
    }
 }
