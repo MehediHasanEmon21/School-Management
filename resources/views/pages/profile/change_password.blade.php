@@ -1,3 +1,4 @@
+
 @extends('master')
 
 @section('content')
@@ -8,12 +9,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">User</h1>
+            <h1 class="m-0 text-dark">Password Change</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">User v1</li>
+              <li class="breadcrumb-item active">Password v1</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -35,45 +36,35 @@
 
           <div class="card">
             <div class="card-header">
-              <h2 class="card-title">User List</h2>
-              <a href="{{ route('user.view') }}"><h4 class="btn btn-sm btn-success float-right"><i class="fa fa-list">All User</i></h4></a>
+              <h2 class="card-title">Change Password</h2>
+              <a href="{{ route('profile.view') }}"><h4 class="btn btn-sm btn-success float-right"><i class="fa fa-eye"> View Profile</i></h4></a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <form action="{{ route('user.store') }}" method="POST" id="myform">
+              <form action="" method="POST" id="myform">
                 @csrf
              <div class="row">
-                <div class="col-md-4">
+                
+
+
+
+               <div class="col-md-6">
                 
                 <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" class="form-control" name="name" id="name" placeholder="Enter name">
+                    <label for="new_password">New Password</label>
+                    <input type="password" class="form-control" id="new_password" name="new_password" placeholder="New Password">
                 </div>
 
               </div>
 
-              <div class="col-md-4">
+              <div class="col-md-6">
                 
                 <div class="form-group">
-                    <label for="role">Role</label>
-                    <select name="role" class="form-control">
-                      <option value="admin">Admin</option>
-                      <option value="operator">Operator</option>
-                    </select>
+                    <label for="password_confirmation">Confirm Password</label>
+                    <input type="password" class="form-control" name="password_confirmation" id="confirm_password" placeholder="Confirm Password">
                 </div>
 
               </div>
-
-              <div class="col-md-4">
-                
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
-                    <font style="color: red">{{ ($errors->has('email')) ? $errors->first('email') : '' }}</font>
-                </div>
-
-              </div>
-
 
 
 
@@ -81,8 +72,8 @@
 
             </div>
             <!-- /.card-body -->
-            <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="card-footer text-right">
+                  <button type="submit" class="btn btn-primary">Change Password</button>
             </div>
             </div>
           </form>
@@ -109,25 +100,24 @@
 
   $('#myform').validate({
     rules: {
-      name: {
-        required: true,
-      },
-      email: {
-        required: true,
-        email: true,
-      },
 
+      new_password: {
+        required: true,
+        minlength: 8
+      },
+      password_confirmation: {
+        required: true,
+        equalTo: '#new_password'
+      },
     },
     messages: {
-      name: {
-        required: "Name is required",
+      new_password: {
+        required: "New Password is required",
+        minlength: "Your new password must be at least 8 characters long"
       },
-      role: {
-        required: "Role is required",
-      },
-      email: {
-        required: "Email is required",
-        email: "Please enter a vaild email address"
+      password_confirmation: {
+        required: "Password confirmation is required",
+        equalTo: "Password confirmation does not match"
       },
     },
     errorElement: 'span',

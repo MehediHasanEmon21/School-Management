@@ -13,7 +13,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
+              <li class="breadcrumb-item active">Profile v1</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -36,7 +36,7 @@
           <div class="card">
             <div class="card-header">
               <h2 class="card-title">Profile Update</h2>
-              <a href=""><h4 class="btn btn-sm btn-success float-right"><i class="fa fa-eye">View Profile</i></h4></a>
+              <a href="{{ route('profile.view') }}"><h4 class="btn btn-sm btn-success float-right"><i class="fa fa-eye">View Profile</i></h4></a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -52,18 +52,6 @@
 
               </div>
 
-              <div class="col-md-4">
-                
-                <div class="form-group">
-                    <label for="role">Role</label>
-                    <select name="role" class="form-control">
-                      <option value="Admin" {{ ($user->userType == 'Admin' ? 'selected': '')}} >Admin</option>
-                      <option value="User" {{ ($user->userType == 'User' ? 'selected': '')}}>User</option>
-                    </select>
-                </div>
-                <input type="hidden" name="old_image" value="{{ $user->image }}">
-
-              </div>
 
               <div class="col-md-4">
                 

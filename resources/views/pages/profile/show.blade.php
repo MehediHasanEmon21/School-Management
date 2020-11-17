@@ -13,7 +13,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
+              <li class="breadcrumb-item active">Profile v1</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -38,7 +38,7 @@
             <div class="card card-primary card-outline">
               <div class="card-body box-profile">
                 <div class="text-center">
-                  <img class="profile-user-img img-fluid img-circle" src="{{ ($user->image) ? URL::to($user->image) : URL::to('public/assets/backend/dist/img/user4-128x128.jpg') }}" alt="User profile picture">
+                  <img class="profile-user-img img-fluid img-circle" src="{{ ($user->image) ? URL::to($user->image) : URL::to('public/assets/backend/images/default_avatar.png') }}" alt="User profile picture">
                 </div>
 
                 <h3 class="profile-username text-center">{{$user->name}}</h3>

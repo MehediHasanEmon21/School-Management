@@ -38,6 +38,8 @@ Route::group(['middleware' => 'auth'],function(){
 		Route::get('/view','Admin\ProfileController@view')->name('profile.view');
 		Route::get('/edit/{id}','Admin\ProfileController@edit')->name('profile.edit');
 		Route::post('/update/{id}','Admin\ProfileController@update')->name('profile.update');
+		Route::get('/password/change','Admin\ProfileController@changePasswordForm')->name('password.change');
+		Route::post('/password/change','Admin\ProfileController@PasswordStore')->name('password.store');
 
 
 	});

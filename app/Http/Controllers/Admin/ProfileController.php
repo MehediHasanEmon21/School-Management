@@ -7,6 +7,7 @@ use App\User;
 use Auth;
 use DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 class ProfileController extends Controller
@@ -54,11 +55,29 @@ class ProfileController extends Controller
     	$user->email  = $request->email ;
     	$user->mobile = $request->mobile;
     	$user->gender = $request->gender;
-    	$user->userType = $request->role;
 
     	$user->save();
 
     	return redirect()->route('profile.view')->with('success','Profile Updated Successfully');
+
+    }
+
+     public function changePasswordForm(){
+
+        return view('pages.profile.change_password');
+
+    }
+
+    public function PasswordStore(Request $request){
+
+
+        $new_password = $request->new_password;
+        
+        $user = Auth::user();
+        $user->password = Hash::make($new_password);
+        $user->save();
+        return redirect()->route('profile.view')->with('success','Password Updated Successfully');
+
 
     }
 }

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>ABC School</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -34,6 +34,8 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
   <link rel="stylesheet" href="{{asset('public/assets/backend')}}/plugins/select2/css/select2.min.css">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
 
   <style type="text/css">
     .select2-selection {
@@ -54,37 +56,51 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="index3.html" class="nav-link">Home</a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
-      </li>
+     
     </ul>
 
     <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
+  
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
   
       <!-- Notifications Dropdown Menu -->
-      <li class="nav-item dropdown">
+          <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="fas fa-th-large"></i>
+          @php
+            $auth_user = Auth::user();
+          @endphp
+          <img src="{{ ($auth_user->image) ? URL::to($auth_user->image) : URL::to('public/assets/backend/images/default_avatar.png') }}" style="height: 30px; width: 32px; margin-right: 6px;" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+           style="opacity: .8">{{Auth::user()->name}}
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-      
-          <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item dropdown-footer">Logout</a>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-        @csrf
-      </form>
+          <span class="dropdown-item dropdown-header">Account Setting</span>
+          <div class="dropdown-divider"></div>
+          <a href="{{ route('profile.view') }}" class="dropdown-item">
+            <i class="fas fa-user mr-2"></i>View Profile
+
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="{{ route('profile.edit',Auth::user()->id) }}" class="dropdown-item">
+            <i class="fas fa-edit mr-2"></i>Edit Profile
+
+          </a>
+
+
+          <div class="dropdown-divider"></div>
+          <a href="{{ route('password.change') }}" class="dropdown-item">
+            <i class="fas fa-lock mr-2"></i> Change Password
+
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item">
+            <i class="fas fa-sign-out-alt mr-2"></i> Logout
+
+          </a>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+          </form>
         </div>
       </li>
     
@@ -96,9 +112,9 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{ url('/home') }}" class="brand-link">
-      <img src="{{asset('public/assets/backend')}}/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+      <img src="{{asset('public/assets/backend')}}/images/sc.jpg" style="width: 50px; height: 50px" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">M School</span>
+      <span class="brand-text font-weight-light">ABC School</span>
     </a>
 
     <!-- Sidebar -->
@@ -106,7 +122,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{ (Auth::user()->image) ? URL::to(Auth::user()->image) : URL::to('public/assets/backend/dist/img/user4-128x128.jpg') }}" class="img-circle elevation-2" alt="User Image">
+          <img src="{{ (Auth::user()->image) ? URL::to(Auth::user()->image) : URL::to('public/assets/backend/images/default_avatar.png') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="{{ url('/home') }}" class="d-block">{{Auth::user()->name}}</a>
@@ -125,13 +141,7 @@
       @yield('content')
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.0.4
-    </div>
-  </footer>
+  
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">

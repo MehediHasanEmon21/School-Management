@@ -11,10 +11,10 @@ $route = Route::current()->getName();
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
    
-          @if(Auth::user()->role == 'Admin')
+          @if(Auth::user()->role == 'admin')
           <li class="nav-item has-treeview {{ $prefix == '/user' ? 'menu-open' : '' }}">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-users"></i>
               <p>
                User Management
                 <i class="fas fa-angle-left right"></i>
@@ -33,7 +33,7 @@ $route = Route::current()->getName();
 
           <li class="nav-item has-treeview {{ $prefix == '/profile' ? 'menu-open' : '' }}">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-user"></i>
               <p>
                  Profile Management
                 <i class="fas fa-angle-left right"></i>
@@ -46,12 +46,18 @@ $route = Route::current()->getName();
                   <p>View Profile</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{route('password.change')}}" class="nav-link {{ $route == 'password.change' ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Change Password</p>
+                </a>
+              </li>
             </ul>
           </li>
 
           <li class="nav-item has-treeview {{ $prefix == '/setups' ? 'menu-open' : '' }}">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-cog"></i>
               <p>
                  Setup Management
                 <i class="fas fa-angle-left right"></i>
@@ -145,7 +151,7 @@ $route = Route::current()->getName();
 
             <li class="nav-item has-treeview {{ $prefix == '/student' ? 'menu-open' : '' }}">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-graduation-cap"></i>
               <p>
                Student Management
                 <i class="fas fa-angle-left right"></i>
@@ -188,7 +194,7 @@ $route = Route::current()->getName();
 
           <li class="nav-item has-treeview {{ $prefix == '/employee' ? 'menu-open' : '' }}">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-briefcase"></i>
               <p>
                  Employee Management
                 <i class="fas fa-angle-left right"></i>
@@ -239,7 +245,7 @@ $route = Route::current()->getName();
 
           <li class="nav-item has-treeview {{ $prefix == '/marks' ? 'menu-open' : '' }}">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-star"></i>
               <p>
                  Marks Management
                 <i class="fas fa-angle-left right"></i>
@@ -277,7 +283,7 @@ $route = Route::current()->getName();
 
            <li class="nav-item has-treeview {{ $prefix == '/accounts' ? 'menu-open' : '' }}">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fab fa-adn"></i>
               <p>
                  Accounts Management
                 <i class="fas fa-angle-left right"></i>
@@ -317,7 +323,7 @@ $route = Route::current()->getName();
 
             <li class="nav-item has-treeview {{ $prefix == '/reports' ? 'menu-open' : '' }}">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-file-invoice"></i>
               <p>
                  Report Management
                 <i class="fas fa-angle-left right"></i>
