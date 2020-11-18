@@ -300,7 +300,7 @@ $route = Route::current()->getName();
 
              <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('acounts.salary.view')}}" class="nav-link {{ $route == 'acounts.fee.view' ? 'active' : '' }}">
+                <a href="{{route('acounts.salary.view')}}" class="nav-link {{ $route == 'acounts.salary.view' ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Employee Salary</p>
                 </a>

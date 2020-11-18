@@ -30,9 +30,9 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+                <h3>{{ $total_students }}</h3>
 
-                <p>New Orders</p>
+                <p>Students</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
@@ -45,9 +45,9 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                <h3>{{ $total_teachers }}</h3>
 
-                <p>Bounce Rate</p>
+                <p>Teacher</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -60,9 +60,9 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+                <h3>{{ $total_operators }}</h3>
 
-                <p>User Registrations</p>
+                <p>Operator</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
@@ -75,9 +75,9 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>65</h3>
+                <h3>{{ $today_cost }} tk</h3>
 
-                <p>Unique Visitors</p>
+                <p>Today Cost</p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
@@ -97,8 +97,9 @@
          
   
     <!-- /.content -->
-
+ 
   <script type="text/javascript">
+
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 

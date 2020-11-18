@@ -36,7 +36,7 @@
           <div class="card">
             <div class="card-header">
               <h2 class="card-title">Group List</h2>
-              <a href="{{route('student.group.create')}}"><h4 class="btn btn-sm btn-success float-right"><i class="fa fa-plus-circle">Add class</i></h4></a>
+              <a href="{{route('student.group.create')}}"><h4 class="btn btn-sm btn-success float-right"><i class="fa fa-plus-circle">Add Group</i></h4></a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">

@@ -88,7 +88,7 @@
                   <th>Class</th>
                   <th>Roll</th>
                   <th>Image</th>
-                  @if(Auth::user()->role == 'Admin')
+                  @if(Auth::user()->role == 'admin')
                   <th>Code</th>
                   @endif
                   <th>Action</th>
@@ -107,7 +107,7 @@
                   <td>
                     <img class="profile-user-img img-fluid img-circle" src="{{ ($st->student->image) ? URL::to($st->student->image) : URL::to('public/assets/backend/dist/img/unnamed.jpg') }}" style="width: 70px; height: 70px" alt="User profile picture">
                   </td>
-                  @if(Auth::user()->role == 'Admin')
+                  @if(Auth::user()->role == 'admin')
                   <td>{{$st->student->code}}</td>
                   @endif
                   <td>
@@ -123,17 +123,17 @@
                 @endforeach
                 </tbody>
                 <tfoot>
-                <tr>
+                 <tr>
                   <th>SL</th>
                   <th>Name</th>
                   <th>Id</th>
                   <th>Year</th>
                   <th>Class</th>
-                  @if(Auth::user()->role == 'Admin')
+                  <th>Roll</th>
+                  <th>Image</th>
+                  @if(Auth::user()->role == 'admin')
                   <th>Code</th>
                   @endif
-                  <th>Image</th>
-                  <th>Code</th>
                   <th>Action</th>
                 </tr>
                 </tfoot>

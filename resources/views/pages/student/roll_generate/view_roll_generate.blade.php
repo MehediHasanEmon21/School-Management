@@ -84,11 +84,11 @@
                   <table class="table table-bordered table-striped" style="width: 100%">
                     <thead>
                       <tr>
-                        <td>Id No</td>
-                        <td>Father's Name</td>
-                        <td>Mother's Name</td>
-                        <td>Gender</td>
-                        <td>Roll</td>
+                        <th>Id No</th>
+                        <th>Father's Name</th>
+                        <th>Mother's Name</th>
+                        <th>Gender</th>
+                        <th>Roll</th>
                       </tr>
                     </thead>
 
@@ -160,7 +160,7 @@
               '<td>'+v.student.fname+'</td>'+
               '<td>'+v.student.mname+'</td>'+
               '<td>'+v.student.gender+'</td>'+
-              '<td><input type="text" class="form-control form-control-sm" name="roll[]" value="'+v.roll+'"></td>'+
+              '<td><input type="number" class="form-control form-control-sm" name="roll[]"></td>'+
               '</tr>'
             })
             $('#roll-generate-tr').html(html)
@@ -172,18 +172,23 @@
 
   </script>
 
-  <script type="text/javascript">
+
+
+    <script type="text/javascript">
       
 
   $(document).ready(function () {
 
   $('#myform').validate({
-    "roll[]": {
-      year_id: {
+    rules: {
+      "roll[]": {
         required: true,
       },
+      
+
     },
     messages: {
+    
     },
     errorElement: 'span',
     errorPlacement: function (error, element) {
@@ -201,6 +206,8 @@
 
 
     </script>
+
+
 
 
 @endsection
