@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 16, 2020 at 11:52 AM
+-- Generation Time: Nov 19, 2020 at 10:38 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.27
 
@@ -52,6 +52,13 @@ CREATE TABLE `account_other_costs` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `account_other_costs`
+--
+
+INSERT INTO `account_other_costs` (`id`, `date`, `amount`, `description`, `created_at`, `updated_at`) VALUES
+(3, '2020-11-18', 500, '1 box marker', '2020-11-18 04:02:19', '2020-11-18 04:02:19');
+
 -- --------------------------------------------------------
 
 --
@@ -70,6 +77,16 @@ CREATE TABLE `account_student_fees` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `account_student_fees`
+--
+
+INSERT INTO `account_student_fees` (`id`, `year_id`, `class_id`, `student_id`, `fee_category_id`, `date`, `amount`, `created_at`, `updated_at`) VALUES
+(4, 1, 1, 16, 5, '2020-01', 500, '2020-11-18 04:00:14', '2020-11-18 04:00:14'),
+(5, 1, 1, 17, 5, '2020-01', 500, '2020-11-18 04:00:14', '2020-11-18 04:00:14'),
+(6, 1, 1, 16, 4, '2020-11', 100, '2020-11-18 04:01:31', '2020-11-18 04:01:31'),
+(7, 1, 1, 17, 4, '2020-11', 100, '2020-11-18 04:01:31', '2020-11-18 04:01:31');
+
 -- --------------------------------------------------------
 
 --
@@ -87,6 +104,21 @@ CREATE TABLE `assign_students` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `assign_students`
+--
+
+INSERT INTO `assign_students` (`id`, `student_id`, `roll`, `class_id`, `year_id`, `group_id`, `shift_id`, `created_at`, `updated_at`) VALUES
+(16, 16, 1, 1, 1, NULL, NULL, '2020-11-18 02:52:51', '2020-11-18 03:18:27'),
+(17, 17, 2, 1, 1, NULL, NULL, '2020-11-18 02:55:20', '2020-11-18 03:18:27'),
+(18, 18, 2, 2, 1, NULL, NULL, '2020-11-18 02:57:09', '2020-11-18 03:18:57'),
+(19, 19, 1, 2, 1, NULL, NULL, '2020-11-18 02:58:44', '2020-11-18 03:18:57'),
+(20, 20, 1, 3, 1, NULL, NULL, '2020-11-18 03:00:18', '2020-11-18 03:19:35'),
+(21, 21, 2, 4, 1, NULL, NULL, '2020-11-18 03:01:34', '2020-11-18 03:19:46'),
+(22, 22, 1, 4, 1, NULL, NULL, '2020-11-18 03:02:38', '2020-11-18 03:19:46'),
+(23, 23, 2, 7, 1, NULL, NULL, '2020-11-18 03:04:02', '2020-11-18 03:20:00'),
+(24, 24, 1, 7, 1, NULL, NULL, '2020-11-18 03:05:09', '2020-11-18 03:20:00');
 
 -- --------------------------------------------------------
 
@@ -112,7 +144,28 @@ CREATE TABLE `assign_subjects` (
 INSERT INTO `assign_subjects` (`id`, `class_id`, `subject_id`, `full_mark`, `pass_mark`, `subjective_mark`, `created_at`, `updated_at`) VALUES
 (20, 1, 1, 100, 33, 100, '2020-10-13 21:14:21', '2020-10-13 21:14:21'),
 (21, 1, 2, 100, 33, 33, '2020-10-13 21:14:21', '2020-10-13 21:14:21'),
-(22, 1, 3, 100, 33, 100, '2020-10-13 21:14:21', '2020-10-14 18:50:56');
+(22, 1, 3, 100, 33, 100, '2020-10-13 21:14:21', '2020-10-14 18:50:56'),
+(23, 2, 1, 100, 33, 100, '2020-11-18 02:35:04', '2020-11-18 02:35:04'),
+(24, 2, 2, 100, 33, 100, '2020-11-18 02:35:04', '2020-11-18 02:35:04'),
+(25, 2, 3, 100, 33, 100, '2020-11-18 02:35:04', '2020-11-18 02:35:04'),
+(26, 3, 1, 100, 33, 100, '2020-11-18 02:35:58', '2020-11-18 02:35:58'),
+(27, 3, 2, 100, 33, 100, '2020-11-18 02:35:58', '2020-11-18 02:35:58'),
+(28, 3, 3, 100, 33, 100, '2020-11-18 02:35:58', '2020-11-18 02:35:58'),
+(29, 3, 4, 100, 33, 100, '2020-11-18 02:36:57', '2020-11-18 02:36:57'),
+(30, 3, 5, 100, 33, 100, '2020-11-18 02:36:57', '2020-11-18 02:36:57'),
+(31, 3, 6, 100, 33, 100, '2020-11-18 02:36:57', '2020-11-18 02:36:57'),
+(32, 4, 1, 100, 33, 100, '2020-11-18 02:38:13', '2020-11-18 02:38:13'),
+(33, 4, 2, 100, 33, 100, '2020-11-18 02:38:13', '2020-11-18 02:38:13'),
+(34, 4, 3, 100, 33, 100, '2020-11-18 02:38:13', '2020-11-18 02:38:13'),
+(35, 4, 4, 100, 33, 100, '2020-11-18 02:38:13', '2020-11-18 02:38:13'),
+(36, 4, 5, 100, 33, 100, '2020-11-18 02:38:13', '2020-11-18 02:38:13'),
+(37, 4, 6, 100, 33, 100, '2020-11-18 02:38:13', '2020-11-18 02:38:13'),
+(38, 7, 1, 100, 33, 100, '2020-11-18 02:40:04', '2020-11-18 02:40:04'),
+(39, 7, 2, 100, 33, 100, '2020-11-18 02:40:04', '2020-11-18 02:40:04'),
+(40, 7, 3, 100, 33, 100, '2020-11-18 02:40:04', '2020-11-18 02:40:04'),
+(41, 7, 4, 100, 33, 100, '2020-11-18 02:40:04', '2020-11-18 02:40:04'),
+(42, 7, 5, 100, 33, 100, '2020-11-18 02:40:04', '2020-11-18 02:40:04'),
+(43, 7, 6, 100, 33, 100, '2020-11-18 02:40:04', '2020-11-18 02:40:04');
 
 -- --------------------------------------------------------
 
@@ -144,11 +197,26 @@ INSERT INTO `designations` (`id`, `name`, `created_at`, `updated_at`) VALUES
 CREATE TABLE `discount_students` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `assign_student_id` int(11) NOT NULL,
-  `fee_category_id` int(11) NOT NULL,
-  `discount` double NOT NULL,
+  `fee_category_id` int(11) DEFAULT NULL,
+  `discount` double DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `discount_students`
+--
+
+INSERT INTO `discount_students` (`id`, `assign_student_id`, `fee_category_id`, `discount`, `created_at`, `updated_at`) VALUES
+(10, 16, 5, NULL, '2020-11-18 02:52:51', '2020-11-18 02:52:51'),
+(11, 17, 5, NULL, '2020-11-18 02:55:20', '2020-11-18 02:55:20'),
+(12, 18, 5, 10, '2020-11-18 02:57:09', '2020-11-18 02:57:09'),
+(13, 19, 5, NULL, '2020-11-18 02:58:45', '2020-11-18 02:58:45'),
+(14, 20, 5, NULL, '2020-11-18 03:00:18', '2020-11-18 03:00:18'),
+(15, 21, 5, 15, '2020-11-18 03:01:34', '2020-11-18 03:01:34'),
+(16, 22, 5, 20, '2020-11-18 03:02:38', '2020-11-18 03:02:38'),
+(17, 23, 5, NULL, '2020-11-18 03:04:02', '2020-11-18 03:04:02'),
+(18, 24, 5, NULL, '2020-11-18 03:05:09', '2020-11-18 03:05:09');
 
 -- --------------------------------------------------------
 
@@ -164,6 +232,21 @@ CREATE TABLE `employee_attendances` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `employee_attendances`
+--
+
+INSERT INTO `employee_attendances` (`id`, `employee_id`, `date`, `attend_status`, `created_at`, `updated_at`) VALUES
+(9, 25, '2020-11-18', 'Present', '2020-11-18 03:53:15', '2020-11-18 03:53:15'),
+(10, 26, '2020-11-18', 'Present', '2020-11-18 03:53:15', '2020-11-18 03:53:15'),
+(11, 27, '2020-11-18', 'Present', '2020-11-18 03:53:15', '2020-11-18 03:53:15'),
+(12, 25, '2020-11-17', 'Absent', '2020-11-18 03:53:28', '2020-11-18 03:53:28'),
+(13, 26, '2020-11-17', 'Present', '2020-11-18 03:53:28', '2020-11-18 03:53:28'),
+(14, 27, '2020-11-17', 'Present', '2020-11-18 03:53:28', '2020-11-18 03:53:28'),
+(15, 25, '2020-11-16', 'Present', '2020-11-18 03:53:50', '2020-11-18 03:53:50'),
+(16, 26, '2020-11-16', 'Absent', '2020-11-18 03:53:50', '2020-11-18 03:53:50'),
+(17, 27, '2020-11-16', 'Present', '2020-11-18 03:53:50', '2020-11-18 03:53:50');
 
 -- --------------------------------------------------------
 
@@ -181,6 +264,13 @@ CREATE TABLE `employee_leaves` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `employee_leaves`
+--
+
+INSERT INTO `employee_leaves` (`id`, `employee_id`, `leave_purpose_id`, `start_date`, `end_date`, `created_at`, `updated_at`) VALUES
+(3, 25, 4, '2020-11-10', '2020-11-12', '2020-11-18 03:52:12', '2020-11-18 03:52:12');
+
 -- --------------------------------------------------------
 
 --
@@ -197,6 +287,16 @@ CREATE TABLE `employee_salary_logs` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `employee_salary_logs`
+--
+
+INSERT INTO `employee_salary_logs` (`id`, `employee_id`, `previous_salary`, `present_salary`, `increment_salary`, `effected_date`, `created_at`, `updated_at`) VALUES
+(8, 25, NULL, 20000, 0, '2020-11-18', '2020-11-18 03:38:43', '2020-11-18 03:38:43'),
+(9, 26, NULL, 20000, 0, '1970-01-01', '2020-11-18 03:40:11', '2020-11-18 03:40:11'),
+(10, 27, NULL, 25000, 0, '2020-09-16', '2020-11-18 03:41:29', '2020-11-18 03:41:29'),
+(11, 27, 25000, 27000, 2000, '2020-12-01', '2020-11-18 03:46:38', '2020-11-18 03:46:38');
 
 -- --------------------------------------------------------
 
@@ -327,6 +427,13 @@ CREATE TABLE `leave_purposes` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `leave_purposes`
+--
+
+INSERT INTO `leave_purposes` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(4, 'Personal Problem', '2020-11-18 03:52:12', '2020-11-18 03:52:12');
 
 -- --------------------------------------------------------
 
@@ -479,6 +586,24 @@ CREATE TABLE `student_marks` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `student_marks`
+--
+
+INSERT INTO `student_marks` (`id`, `student_id`, `id_no`, `year_id`, `class_id`, `assign_subject_id`, `exam_type_id`, `marks`, `created_at`, `updated_at`) VALUES
+(21, 16, '20200001', 1, 1, 20, 4, 67, '2020-11-18 03:55:55', '2020-11-18 03:55:55'),
+(22, 17, '20200017', 1, 1, 20, 4, 89, '2020-11-18 03:55:55', '2020-11-18 03:55:55'),
+(23, 16, '20200001', 1, 1, 21, 4, 78, '2020-11-18 03:56:19', '2020-11-18 03:56:19'),
+(24, 17, '20200017', 1, 1, 21, 4, 67, '2020-11-18 03:56:19', '2020-11-18 03:56:19'),
+(25, 16, '20200001', 1, 1, 22, 4, 90, '2020-11-18 03:56:39', '2020-11-18 03:56:39'),
+(26, 17, '20200017', 1, 1, 22, 4, 85, '2020-11-18 03:56:39', '2020-11-18 03:56:39'),
+(27, 18, '20200018', 1, 2, 23, 4, 46, '2020-11-18 03:58:06', '2020-11-18 03:58:06'),
+(28, 19, '20200019', 1, 2, 23, 4, 76, '2020-11-18 03:58:06', '2020-11-18 03:58:06'),
+(29, 18, '20200018', 1, 2, NULL, 4, 54, '2020-11-18 03:58:31', '2020-11-18 03:58:31'),
+(30, 19, '20200019', 1, 2, NULL, 4, 58, '2020-11-18 03:58:31', '2020-11-18 03:58:31'),
+(31, 18, '20200018', 1, 2, 25, 4, 77, '2020-11-18 03:58:48', '2020-11-18 03:58:48'),
+(32, 19, '20200019', 1, 2, 25, 4, 69, '2020-11-18 03:58:48', '2020-11-18 03:58:48');
+
 -- --------------------------------------------------------
 
 --
@@ -542,7 +667,20 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `userType`, `email`, `email_verified_at`, `password`, `mobile`, `address`, `gender`, `image`, `fname`, `mname`, `religion`, `id_no`, `dob`, `code`, `role`, `join_date`, `designation_id`, `salary`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Emon', 'Admin', 'emon@gmail.com', NULL, '$2y$10$CWPJFZHLqPAN57an3Wy.oez6LQWqrNPk4/Laqw95SKm1x0MePInhW', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Admin', NULL, NULL, NULL, 1, NULL, NULL, NULL);
+(1, 'Emon', 'Admin', 'admin@gmail.com', NULL, '$2y$10$vaEpYyfjRmjIxYYRIl2y9O0gJ/fmHBIcEi9ywnMY6XfOcmjxw8kJO', '01783354905', NULL, 'Male', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'admin', NULL, NULL, NULL, 1, NULL, NULL, '2020-11-17 06:11:46'),
+(14, 'Samim', 'Admin', 'op@gmail.com', NULL, '$2y$10$5Y9.b7Ijo8e2mgppUBttCe6/DwSh2pHYpm.Nowt0VdbXvioJvBR4y', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '3187', 'operator', NULL, NULL, NULL, 1, NULL, '2020-11-17 05:48:39', '2020-11-17 05:48:39'),
+(16, 'Samia Rahman', 'student', NULL, NULL, '$2y$10$TELNgg9NPqpTY0rsiPYfZ.Mm7QP9T6zfi6ZyKoyxjL7lBMMZdDea.', '01676546754', 'Dhaka', 'Female', 'public/assets/backend/images/student/2PGwYRZf9K.jpg', 'Sumon Rahman', 'Sakina Rahman', 'Muslim', '20200001', '2015-07-17', '2900', NULL, NULL, NULL, NULL, 1, NULL, '2020-11-18 02:52:51', '2020-11-18 02:52:51'),
+(17, 'Siam Hossain', 'student', NULL, NULL, '$2y$10$45UJxuswmJ6Z3ffKHkMj6esIIjnMZZGHtJ/9AXN/0JpsZTBgkVxhm', '01765465467', 'Dhaka', 'Male', 'public/assets/backend/images/student/wgCaOBXcAP.jpg', 'Sujon Molla', 'Samima Khatun', 'Muslim', '20200017', '2015-07-19', '2292', NULL, NULL, NULL, NULL, 1, NULL, '2020-11-18 02:55:20', '2020-11-18 02:55:20'),
+(18, 'Sumon Chakraborti', 'student', NULL, NULL, '$2y$10$NRTmL7naABeYAVAg6ucoPek6Oj03gFS6th9EvmLMPL9gw4rJSa9/.', '01876545543', 'Dhaka', 'Male', 'public/assets/backend/images/student/QhUftMR17k.jpg', 'Himel Chakraborti', 'Rani Biswas', 'Hindu', '20200018', '2014-07-17', '9763', NULL, NULL, NULL, NULL, 1, NULL, '2020-11-18 02:57:09', '2020-11-18 02:57:09'),
+(19, 'Sumona', 'student', NULL, NULL, '$2y$10$yiKJUsmNrolX7WxjRKSeK.JRJabZDMss/a3qUaB.OVr9uC2x4f6BW', '0176545363', 'Dhaka', 'Female', 'public/assets/backend/images/student/Ns0n5MW0X2.jpg', 'Sumon', 'Sathi', 'Muslim', '20200019', '2014-07-17', '9243', NULL, NULL, NULL, NULL, 1, NULL, '2020-11-18 02:58:44', '2020-11-18 02:58:44'),
+(20, 'Alan Gomez', 'student', NULL, NULL, '$2y$10$Eobk49w2xs4L/ZtgQcAsIu0bis/tFnQD6bhUT0g4gtaJ1.gngFNqq', '01765466456', 'Dhaka', 'Male', 'public/assets/backend/images/student/YQmCMlUkUO.jpg', 'Stafin Gomez', 'Alastin Gomez', 'Christian', '20200020', '2013-07-17', '6387', NULL, NULL, NULL, NULL, 1, NULL, '2020-11-18 03:00:18', '2020-11-18 03:00:18'),
+(21, 'Samia Othoi', 'student', NULL, NULL, '$2y$10$GsBSd7wiczGbd4dlrhARj.4D75sli7LulUObFvx0TX/jrHr27kkRy', '016745355432', 'Dhaka', 'Female', 'public/assets/backend/images/student/p8PvnqKmnz.jpg', 'Sujon', 'Shikah', 'Muslim', '20200021', '2012-07-17', '68', NULL, NULL, NULL, NULL, 1, NULL, '2020-11-18 03:01:34', '2020-11-18 03:01:34'),
+(22, 'Sima', 'student', NULL, NULL, '$2y$10$99y8bB5i6cs7zm3F3egTHuJoSUHs/3.01dUPFMqCamGVVW9fljn9u', '01765435435', 'Dhaka', 'Female', 'public/assets/backend/images/student/1yfWtVJTin.jpg', 'Sahin', 'Sarmin', 'Muslim', '20200022', '2013-07-17', '3300', NULL, NULL, NULL, NULL, 1, NULL, '2020-11-18 03:02:38', '2020-11-18 03:02:38'),
+(23, 'Sumona Akter', 'student', NULL, NULL, '$2y$10$vqDHK9Zm46XTRv/7JmLsXO7FfUxXT4FtU7JFDs.a9f3E2NGGaegz6', '01657655546', 'Dhaka', 'Female', 'public/assets/backend/images/student/3iMCMDpTpT.jpg', 'Siam', 'Sarmin', 'Muslim', '20200023', '2012-07-17', '2733', NULL, NULL, NULL, NULL, 1, NULL, '2020-11-18 03:04:02', '2020-11-18 03:04:02'),
+(24, 'Sanjana', 'student', NULL, NULL, '$2y$10$P0WZhlbu8jBGjPAMh0xwEOd1M6dCDtx56OkUGgFk5.c6HesVFGGna', '01786654536', 'Dhaka', 'Female', 'public/assets/backend/images/student/Koyo5ltqqC.jpg', 'Sabir Ali', 'Sabera Khatun', 'Muslim', '20200024', '2013-07-17', '3483', NULL, NULL, NULL, NULL, 1, NULL, '2020-11-18 03:05:09', '2020-11-18 03:05:09'),
+(25, 'Delwar Hossain', 'employee', NULL, NULL, '$2y$10$Hlor2ZAcCqLf9RBZ97E0u.xScX4h/Gs.sS3IbsrEog9IQXju2VOZG', '01875544436', 'Dhaka', 'Male', 'public/assets/backend/images/employee/PkLsro3TLN.jpg', 'Hamza', 'Sumona', 'Muslim', '2020110001', '1990-06-30', '2493', NULL, '2020-11-18', 1, 20000, 1, NULL, '2020-11-18 03:38:43', '2020-11-18 03:38:43'),
+(26, 'Sazzad Ali', 'employee', NULL, NULL, '$2y$10$E3lIxWwM5AFxtLUX0Yb7jOk4KBBYtuBjVNiWtPsA2G.o37fb36hsO', '01765565436', 'Dhaka', 'Male', 'public/assets/backend/images/employee/sAB0tijHVS.jpg', 'Fakrul', 'Sarmin', 'Muslim', '1970010026', '1991-11-22', '6680', NULL, '1970-01-01', 2, 20000, 1, NULL, '2020-11-18 03:40:11', '2020-11-18 03:40:11'),
+(27, 'Sumaiya Rahman', 'employee', NULL, NULL, '$2y$10$m2/MdjTBWXTGSAbsSuzjdurghww/wURHWXuAK5mE.04orrM/PMs3O', '01876465433', 'Dhaka', 'Male', 'public/assets/backend/images/employee/aYJiXYL9zb.jpg', 'Rahman Ali', 'Sumona', 'Muslim', '2020090027', '1990-02-09', '3925', NULL, '2020-09-16', 2, 27000, 1, NULL, '2020-11-18 03:41:29', '2020-11-18 03:46:38');
 
 -- --------------------------------------------------------
 
@@ -734,25 +872,25 @@ ALTER TABLE `account_employee_salaries`
 -- AUTO_INCREMENT for table `account_other_costs`
 --
 ALTER TABLE `account_other_costs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `account_student_fees`
 --
 ALTER TABLE `account_student_fees`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `assign_students`
 --
 ALTER TABLE `assign_students`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `assign_subjects`
 --
 ALTER TABLE `assign_subjects`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `designations`
@@ -764,25 +902,25 @@ ALTER TABLE `designations`
 -- AUTO_INCREMENT for table `discount_students`
 --
 ALTER TABLE `discount_students`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `employee_attendances`
 --
 ALTER TABLE `employee_attendances`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `employee_leaves`
 --
 ALTER TABLE `employee_leaves`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `employee_salary_logs`
 --
 ALTER TABLE `employee_salary_logs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `exam_types`
@@ -818,7 +956,7 @@ ALTER TABLE `groups`
 -- AUTO_INCREMENT for table `leave_purposes`
 --
 ALTER TABLE `leave_purposes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `mark_grades`
@@ -848,7 +986,7 @@ ALTER TABLE `student_classes`
 -- AUTO_INCREMENT for table `student_marks`
 --
 ALTER TABLE `student_marks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `subjects`
@@ -860,7 +998,7 @@ ALTER TABLE `subjects`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `years`

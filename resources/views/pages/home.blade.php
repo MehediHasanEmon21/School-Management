@@ -88,7 +88,13 @@
           <!-- ./col -->
         </div>
         <div class="row">
-          <div id="piechart" style="width: 900px; height: 500px;"></div>
+          <div class="col-md-6">
+            <div id="piechart" style="width: 100%; height: 300px;"></div>
+          </div>
+          <div class="col-md-6">
+            <div id="curve_chart" style="width: 100%; height: 300px"></div>
+          </div>
+          
         </div>
         <!-- /.row -->
         <!-- Main row -->
@@ -100,25 +106,53 @@
  
   <script type="text/javascript">
 
+      var male = @json($male_students);
+      var female = @json($female_students);
+      var total = @json($total_students);
+
+
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
 
         var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
+          ['Task', 'total'],
+          ['Male',     male],
+          ['Female',      female],
         ]);
 
         var options = {
-          title: 'My Daily Activities'
+          title: 'Student of this School',
+          is3D: true,
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Profit', 'Expenses'],
+          ['2019',  1000,      400],
+          ['2020',  1170,      460],
+          ['2021',  660,       1120],
+          ['2222',  1030,      540]
+        ]);
+
+        var options = {
+          title: 'Profit vs Expense',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
 
         chart.draw(data, options);
       }
